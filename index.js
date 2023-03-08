@@ -6,7 +6,7 @@ import { carrusel } from "./carrusel.js";
 const secciones = document.querySelectorAll("section")
 const enlaces = document.querySelectorAll(".enlace")
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("load", () => {
     scrollSpy(secciones, enlaces)
     navbarScroll()
     //bannerShow()
