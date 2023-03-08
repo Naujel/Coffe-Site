@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <main>
@@ -24,10 +25,17 @@
                     <a class= "enlace" href="#productos">PRODUCTOS</a>
                     <a class= "enlace" href="#contacto">CONTACTO</a>
                 </div>
-                <div class="shopping-card">
+                <div class="shopping-car">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
             </nav>
+            <div class="panel-shopping-car">
+                <i class="fa-solid fa-xmark"></i>
+                <h2>TU CARRO</h2>
+                <div class="car-products">
+                    <p>El carro de compras no se encuentra disponible actualmente</p>
+                </div>
+            </div>
             <div class="banner">
                 <h1>DISCOVER THE TASTE OF REAL COFFE</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet enim reprehenderit officia doloremque, aliquam cumque laborum molestias voluptates voluptatum pariatur minus repudiandae soluta nostrum voluptate natus</p>
@@ -114,20 +122,41 @@
         <section id="contacto" class="container-4">
             <div class="mapa-ubicacion">
                 <h2>UBICANOS</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2966.88222471357!2d-70.60642374261302!3d-33.4177010299621!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf42852fa709%3A0xbaef1bdfa066e82f!2sMall%20Costanera%20Center!5e0!3m2!1ses!2scl!4v1678224865503!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6660.421842053278!2d-70.606535!3d-33.417745!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf42852fa709%3A0xbaef1bdfa066e82f!2sMall%20Costanera%20Center!5e0!3m2!1ses!2scl!4v1678242967014!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div class="formulario">
                 <h2>CONTACTANOS</h2>
                 <form action="#">
                     <input type="text" placeholder="Nombre" name="name" required>
-                    <input type="text" placeholder="Apellido" name="password" required>
+                    <span class="span-error error-name">
+                        <i class='bx bx-error-circle'></i>
+                        <p>El nombre solo puede contener letras y espacios</p>
+                    </span>
+                    <input type="text" placeholder="Apellido" name="second-name" required>
+                    <span class="span-error error-second-name">
+                        <i class='bx bx-error-circle'></i>
+                        <p>El apellido solo puede contener letras y espacios</p>
+                    </span>
                     <input type="email" placeholder="Email" name="email" required>
-                    <textarea name="" id="" cols="30" rows="10" name="comment" placeholder="Comentario" required></textarea>
-                    <input type="submit">
+                    <span class="span-error error-email">
+                        <i class='bx bx-error-circle'></i>
+                        <p>Por favor, ingrese un email válido</p>
+                    </span>
+                    <textarea class="comment" style="resize: none;" id="" cols="30" rows="10" name="comment" placeholder="Comentario" required></textarea>
+                    <span class="span-error error-comment">
+                        <i class='bx bx-error-circle'></i>
+                        <p>Ha superado el límite de caracteres disponibles</p>
+                    </span>
+                    <input class="submit" type="submit">
+                    <span class="span-error field-error">
+                        <i class='bx bxs-error'></i>
+                        <p>Por favor, ingrese los campos requeridos</p>
+                    </span>
                 </form>
             </div>
         </section>
     </main>
     <script src="index.js" defer type="module"></script>
+
 </body>
 </html>
