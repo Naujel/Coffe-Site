@@ -92,6 +92,45 @@ body {
         font-size: 16px;
     }
 
+.panel-shopping-car {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgb(245, 222, 179);
+    width: 20%;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: all .5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 24px;
+}
+    .fa-xmark {
+        color: var(--primary-color);
+        margin: 30px;
+        margin-left: auto;
+        font-size: 32px;
+    }
+
+    .car-products {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+        .car-products p{
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+.panel-shopping-car.is-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .banner {
     width: 40%;
     margin-left: 80px;
@@ -135,7 +174,7 @@ body {
     transform: scale(1.1);
 }
 
-.shopping-card .fa-solid:hover {
+.shopping-car .fa-solid:hover {
     transform: scale(1.2);
 }
 
@@ -363,9 +402,7 @@ body {
                 cursor: pointer;
             }
 
-.slide-img:hover {
-    transform: scale(1.05);
-}
+
 .slide-img .caption a:hover {
     transform: scale(1.1);
 }
@@ -376,7 +413,7 @@ body {
 /* CONTENEDOR 4: UBICACION Y FORM */
 
 .container-4 {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     background-color: var(--primary-color);
     display: flex;
@@ -389,16 +426,25 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        opacity: 0;
+        transform: translateX(-20%);
+        transition: all 1.5s ease-in-out;
     }
+    .mapa-ubicacion.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
         .mapa-ubicacion h2 {
             font-size: 36px;
             color: white;
+            margin: 20px;
         }
 
         .mapa-ubicacion iframe {
             width: 90%;
+            margin: 20px;
         }
 
     .formulario {
@@ -406,10 +452,22 @@ body {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+        opacity: 0;
+        transform: translateX(20%);
+        transition: all 1.5s ease-in-out;
     }
 
+    .formulario.show {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .formulario h2 {
+        color: white;
+        font-size: 36px;
+        margin: 20px;
+    }
         .formulario form {
             display: flex;
             flex-direction: column;
@@ -420,9 +478,57 @@ body {
             .formulario form input, textarea {
                 width: 80%;
                 margin: 10px;
+                padding: 20px;
+                font-size: 16px;
+                border: none;
+                outline: none;
             }
 
-    .formulario {
-        width: 100%;
-        height: 100%;
-    }
+            .formulario form input[type="submit"]{
+                background-color: var(--secondary-color);
+                color: var(--primary-color);
+                width: 50%;
+                margin: 20px;
+                transition: all 250ms;
+                cursor: pointer;
+            }
+            .span-error {
+                display: flex;
+                width: 80%;
+                align-items: center;
+                font-size: 14px;
+                opacity: 0;
+                visibility: hidden;
+                justify-content: center;
+                background-color: #d05e56;
+                transition: opacity 250ms ease-in-out;
+                position: absolute;
+                color: var(--primary-color);
+            }
+
+                .span-error p{
+                    color: var(--primary-color);
+                    font-size: 16px;
+                }
+
+                .span-error i {
+                    margin: 0 5px;
+                    font-size: 20px;
+                }
+                
+                .invalid {
+                    opacity: 1;
+                    visibility: visible;
+                    position: static;
+                }
+
+                .field-error {
+                    background-color: #d05e56;
+                    justify-content: center;
+                    color: var(--primary-color);
+                    padding: 20px;
+                }
+.formulario form input[type="submit"]:hover {
+    transform: scale(1.05);
+}
+    
