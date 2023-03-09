@@ -7,8 +7,9 @@ import { menuCarro } from "./menu-carro.js";
 
 const secciones = document.querySelectorAll("section")
 const enlaces = document.querySelectorAll(".enlace")
+const contenedorCarga = document.querySelector(".load-container")
 
-window.addEventListener("load", () => {
+window.addEventListener("DOMContentLoaded", () => {
     scrollSpy(secciones, enlaces)
     navbarScroll()
     //bannerShow()
@@ -16,4 +17,9 @@ window.addEventListener("load", () => {
     carrusel()
     validarFormulario()
     menuCarro()
+})
+
+window.addEventListener("load", () => {
+    contenedorCarga.style.visibility = "hidden"
+    contenedorCarga.style.opacity = "0"
 })
