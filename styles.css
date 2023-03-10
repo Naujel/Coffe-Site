@@ -33,7 +33,42 @@ body {
 }
 
 
-/* CONTENEDOR 1: NAV BAR Y BANNER */
+/* CONTENEDOR 1: LOAD, NAV BAR Y BANNER */
+
+.load-container {
+    background-color: var(--primary-color);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    transition: all 1s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+}
+    .load-container h3 {
+        color: var(--secondary-color);
+    }
+
+    .load {
+        border: 12px solid var(--secondary-color);
+        border-top-color: var(--primary-color);
+        height: 80px;
+        width: 80px;
+        border-radius: 100%;
+        animation: girar linear 1.5s infinite;
+    }
+
+@keyframes girar {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 
 .container-1 {
     width: 100%;
