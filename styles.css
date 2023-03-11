@@ -104,13 +104,37 @@ body {
     margin-left: 20px;
 }
 
-.fa-solid {
-    color: white;
-    font-size: 28px;
-    cursor: pointer;
-    transition: all 250ms ease;
-    margin-right: 20px;
+.shopping-car {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+    .fa-solid {
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        transition: all 250ms ease;
+        margin-right: 20px;
+        z-index: 1;
+    }
+        .shopping-car .car-counter {
+            background-color: #d05e56;
+            width: 30px;
+            height: 30px;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 100%;
+            position: absolute;
+            top: 10px;
+            right: 0;
+            z-index: 2;
+            opacity: 0;
+        }
+        .car-counter.added{
+            opacity: 1;
+        }
 
 .links {
     height: 100%;
@@ -163,7 +187,6 @@ body {
         flex-direction: column;
         border-top: var(--primary-color) solid 3px;
         border-bottom: var(--primary-color) solid 3px;
-        padding: 20px;
     }
         .product-content {
             display: flex;
@@ -268,13 +291,11 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transform: translateX(-40%);
-    transition: all 1.5s ease-in-out;
+    transition: all 3s ease-in-out;
 }
 
 .banner.show {
     opacity: 1;
-    transform: translateX(0);
 }
 
     .banner h1 {
