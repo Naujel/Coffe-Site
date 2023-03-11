@@ -1,21 +1,38 @@
-export const fetchData = async () => {
-
-    try {
-        const res = await fetch("api.json")
-        const data = await res.json()
-    } catch (error){
-        console.log(error)
-    }
-}
-
-//const dataId = document.querySelector(".boton-compra").dataset.id
-
 export const carritoDeCompras = () => {
     let carrito = {}
+    window.addEventListener("DOMContentLoaded", () => {
+        if (localStorage.getItem("carrito")){
+            carrito = JSON.parse(localStorage.getItem("carrito"))
+            pintarCarrito()
+        }
+    })
+    
+
     document.addEventListener("click", e => {
-    if (e.target.matches(".boton-compra")){
-        addCarrito(e)
-    }
+        if (e.target.matches(".boton-compra")){
+            addCarrito(e)
+        }
+        if (e.target.matches(".clear-button")){
+            carrito = {}
+            pintarCarrito()
+            carCounter.classList.remove("added")
+            
+        }
+        if (e.target.matches(".add-button")){
+            const producto = carrito[e.target.dataset.id]
+            producto.cantidad ++
+            pintarCarrito()
+        }
+
+        if (e.target.matches(".sub-button")){
+            const producto = carrito[e.target.dataset.id]
+            producto.cantidad --
+            if (producto.cantidad === 0){
+                delete carrito[e.target.dataset.id]
+                carCounter.classList.remove("added")
+            }
+            pintarCarrito()
+        }
     })
 
     const addCarrito = (e) => {
@@ -42,6 +59,7 @@ export const carritoDeCompras = () => {
     const carFooter = document.querySelector(".car-footer")
     const templateCarFooter = document.querySelector(".template-car-footer").content
     const fragmentFooter = document.createDocumentFragment()
+    const carCounter = document.querySelector(".car-counter")
 
     const pintarCarrito = () => {
         carProducts.innerHTML = ""
@@ -50,23 +68,45 @@ export const carritoDeCompras = () => {
             templateCarProducts.querySelector("h3").textContent = producto.nombre
             templateCarProducts.querySelector("p").textContent = producto.precio
             templateCarProducts.querySelector(".counter").textContent = producto.cantidad
+            templateCarProducts.querySelector(".add-button").dataset.id = producto.id
+            templateCarProducts.querySelector(".sub-button").dataset.id = producto.id
 
             const clone = templateCarProducts.cloneNode(true)
             fragment.appendChild(clone)
         })
         carProducts.appendChild(fragment)
         pintarFooter()
+        
+        localStorage.setItem("carrito", JSON.stringify(carrito))
     }
 
     const pintarFooter = () => {
         carFooter.innerHTML = ""
-        let totalCantidad = 0
+        carCounter.innerHTML = ""
         let totalPrecio = 0
+        let totalCantidad = 0
+        if (Object.keys(carrito).length === 0){
+            carFooter.innerHTML = `
+            <h3 style="text-align: center;" = >Actualmente tu carro está vacío</h3>
+            `
+            return
+        }
         for (const {cantidad, precio} of Object.values(carrito)) {
             totalCantidad += cantidad
-            totalPrecio = totalPrecio + (cantidad*precio )
+            totalPrecio = totalPrecio + (cantidad*precio.replace("$", "").replace(".", "") )
+            
         }
-        console.log(totalPrecio)
+        
+        carCounter.textContent = totalCantidad;
+        if (totalCantidad > 0) {
+            carCounter.classList.add("added");
+        }
+        
+        
+        templateCarFooter.querySelector("p").textContent = "$"+totalPrecio
+        const clone = templateCarFooter.cloneNode(true)
+        fragmentFooter.appendChild(clone)
+        carFooter.appendChild(fragmentFooter)
         
     }
 }
