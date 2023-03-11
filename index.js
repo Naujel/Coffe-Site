@@ -4,14 +4,13 @@ import { scrollSpy } from "./scroll-spy.js";
 import { carrusel } from "./carrusel.js";
 import { validarFormulario } from "./formulario.js";
 import { menuCarro } from "./menu-carro.js";
-import { carritoDeCompras, fetchData } from "./car-shopping.js";
+import { carritoDeCompras} from "./car-shopping.js";
 
 const secciones = document.querySelectorAll("section")
 const enlaces = document.querySelectorAll(".enlace")
 const contenedorCarga = document.querySelector(".load-container")
 
 window.addEventListener("DOMContentLoaded", () => {
-    fetchData()
     scrollSpy(secciones, enlaces)
     navbarScroll()
     //bannerShow()
@@ -19,8 +18,9 @@ window.addEventListener("DOMContentLoaded", () => {
     carrusel()
     validarFormulario()
     menuCarro()
-    carritoDeCompras()
 })
+
+carritoDeCompras()
 
 window.addEventListener("load", () => {
     contenedorCarga.style.visibility = "hidden"
