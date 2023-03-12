@@ -7,17 +7,26 @@ export const carritoDeCompras = () => {
         }
     })
     
-
+    const modalContainer = document.querySelector(".modal-container")
     document.addEventListener("click", e => {
         if (e.target.matches(".boton-compra")){
             addCarrito(e)
         }
+
         if (e.target.matches(".clear-button")){
             carrito = {}
             pintarCarrito()
             carCounter.classList.remove("added")
-            
         }
+
+        if (e.target.matches(".buy-button")){
+            modalContainer.classList.add("show")
+        }
+
+        if (e.target.matches(".back-button")){
+            modalContainer.classList.remove("show")
+        }
+        
         if (e.target.matches(".add-button")){
             const producto = carrito[e.target.dataset.id]
             producto.cantidad ++
@@ -87,7 +96,7 @@ export const carritoDeCompras = () => {
         let totalCantidad = 0
         if (Object.keys(carrito).length === 0){
             carFooter.innerHTML = `
-            <h3 style="text-align: center;" = >Actualmente tu carro está vacío</h3>
+            <h3 style="text-align: center;" = >¡Actualmente tu carro está vacío!</h3>
             `
             return
         }
