@@ -136,6 +136,62 @@ body {
             opacity: 1;
         }
 
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0, 0.8);
+    display: flex;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s ease;
+    --transform: translateY(-100vh);
+    --transition: transform .5s ease;
+}
+
+.modal-container.show{
+    opacity: 1;
+    pointer-events: unset;
+    --transform: translateY(0);
+}
+    .modal {
+        margin: auto;
+        background-color: var(--secondary-color);
+        width: 90%;
+        max-width: 500px;
+        max-height: 90%;
+        border-radius: 10px;
+        padding: 20px;
+        display: grid;
+        gap: 10px;
+        place-items: center;
+        grid-template-columns: 100%;
+        transition: var(--transition);
+        transform: var(--transform);
+    }
+        .modal h3 {
+            font-size: 28px;
+            margin: 10px;
+        }
+        .modal .fa-solid {
+            font-size: 42px;
+            color: var(--primary-color);
+        }
+        .modal button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 250ms ease;
+        }
+.modal button:hover {
+    transform: scale(1.05);
+}
 .links {
     height: 100%;
     width: 40%;
