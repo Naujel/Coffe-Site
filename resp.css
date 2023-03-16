@@ -180,6 +180,7 @@
                 font-size: 18px;
             }
     .panel-menu {
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
