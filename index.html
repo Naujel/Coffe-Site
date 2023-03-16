@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coffe Website</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="resp.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.2.1/hamburgers.min.css">
 </head>
 <body>
     <main>
@@ -20,6 +22,11 @@
         </div>
         <section id="bienvenido" class="container-1">
             <nav class="nav-container">
+                <button class="hamburger hamburger--spin" type="button">
+                    <span class="hamburger-box">
+                      <span class="hamburger-inner"></span>
+                    </span>
+                </button>
                 <div class="logo">
                     <a class="enlace" href="#bienvenido">LOGO</a>
                 </div>
@@ -44,6 +51,15 @@
                 </div>
                 <div class="car-footer">
                     
+                </div>
+            </div>
+            <div class="panel-menu">
+                <div class="nav-responsive">
+                    <i id="close-button" class="fa-solid fa-xmark"></i>
+                    <a class= "enlace" href="#bienvenido">BIENVENIDO</a>
+                    <a class= "enlace" href="#acerca-de">NOSOTROS</a>
+                    <a class= "enlace" href="#productos">PRODUCTOS</a>
+                    <a class= "enlace" href="#contacto">CONTACTO</a>
                 </div>
             </div>
             <div class="modal-container">
