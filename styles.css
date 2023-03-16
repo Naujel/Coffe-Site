@@ -1,5 +1,5 @@
 :root {
-    --primary-color: black;
+    --primary-color: #1B1C1E;
     --secondary-color: wheat;
 }
 
@@ -77,7 +77,7 @@ body {
 }
 
 .nav-container {
-    background: linear-gradient(var(--primary-color), transparent);
+    background: linear-gradient(black, transparent);
     height: 10vh;
     width: 100%;
     display: flex;
@@ -93,6 +93,10 @@ body {
 
 .nav-black {
     background-color: black;
+}
+.nav-container .hamburger {
+    display: none;
+    z-index: 1000;
 }
 
 .logo a{
@@ -148,6 +152,7 @@ body {
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s ease;
+    text-align: center;
     --transform: translateY(-100vh);
     --transition: transform .5s ease;
 }
@@ -227,8 +232,9 @@ body {
 }
     .fa-xmark {
         color: var(--primary-color);
-        margin: 30px;
         margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         font-size: 32px;
     }
 
@@ -250,7 +256,6 @@ body {
             height: 150px;
         }
             .product-content img {
-                margin: 0 auto;
                 object-fit: cover;
             }
                 .product-details {
@@ -258,7 +263,7 @@ body {
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                    width: 100%;
+                    width: 500px;
                     height: 100%;
                     text-align: center;
                     font-size: 20px;
