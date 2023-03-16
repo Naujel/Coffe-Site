@@ -75,7 +75,9 @@ body {
     width: 100%;
     height: 100vh;
 }
-
+.panel-menu {
+    display: none;
+}
 .nav-container {
     background: linear-gradient(black, transparent);
     height: 10vh;
