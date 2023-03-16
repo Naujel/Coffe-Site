@@ -5,6 +5,7 @@ import { carrusel } from "./carrusel.js";
 import { validarFormulario } from "./formulario.js";
 import { menuCarro } from "./menu-carro.js";
 import { carritoDeCompras} from "./car-shopping.js";
+import { menuHamburguesa } from "./menu-hamburger.js";
 
 const secciones = document.querySelectorAll("section")
 const enlaces = document.querySelectorAll(".enlace")
@@ -18,6 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
     carrusel()
     validarFormulario()
     menuCarro()
+    menuHamburguesa()
 })
 
 carritoDeCompras()
