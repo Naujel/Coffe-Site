@@ -1,35 +1,46 @@
+import { moverDerechaResp, moverIzquierdaResp } from "./carrusel-resp.js"
+
 export const carrusel = () => {
     const slides = document.querySelector(".slides")
-
+    const slider = document.querySelector(".slider")
     const prevButton = document.querySelector(".prev-button")
     const nextButton = document.querySelector(".next-button")
 
     const moverDerecha = () => {
+        //console.log(slider.offsetHeight)
         let primeraImagen = document.querySelectorAll(".slide-img")[0]
-        nextButton.classList.add("disabled")
-        slides.style.marginLeft = "-50%"
-        slides.style.transition = "margin-left 1s"
-        
-        setTimeout(() => {
-            slides.style.transition = "none"
-            slides.insertAdjacentElement("beforeend", primeraImagen)
-            slides.style.marginLeft = "-25%"
-            nextButton.classList.remove("disabled")
-        }, 1000)
+        if (slider.offsetHeight > 400){
+            nextButton.classList.add("disabled")
+            slides.style.marginLeft = "-50%"
+            slides.style.transition = "margin-left 1s"
+            
+            setTimeout(() => {
+                slides.style.transition = "none"
+                slides.insertAdjacentElement("beforeend", primeraImagen)
+                slides.style.marginLeft = "-25%"
+                nextButton.classList.remove("disabled")
+            }, 1000)
+        } else {
+            moverDerechaResp(primeraImagen)
+        }
     }
 
     const moverIzquierda = () => {
         let ultimaImagen = document.querySelectorAll(".slide-img")[document.querySelectorAll(".slide-img").length - 1]
-        prevButton.classList.add("disabled")
-        slides.style.marginLeft = "0%"
-        slides.style.transition = "margin-left 1s"
-        
-        setTimeout(() => {
-            slides.style.transition = "none"
-            slides.insertAdjacentElement("afterbegin", ultimaImagen)
-            slides.style.marginLeft = "-25%"
-            prevButton.classList.remove("disabled")
-        }, 1000)
+        if (slider.offsetHeight > 400){
+            prevButton.classList.add("disabled")
+            slides.style.marginLeft = "0%"
+            slides.style.transition = "margin-left 1s"
+            
+            setTimeout(() => {
+                slides.style.transition = "none"
+                slides.insertAdjacentElement("afterbegin", ultimaImagen)
+                slides.style.marginLeft = "-25%"
+                prevButton.classList.remove("disabled")
+            }, 1000)
+        } else{
+            moverIzquierdaResp(ultimaImagen)
+        }
     }
 
     let sliderInfinito = setInterval(moverDerecha, 5000)
